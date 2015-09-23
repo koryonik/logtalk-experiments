@@ -1,3 +1,5 @@
+# Simple inheritance
+
 complete example now implemented in logtalk repos : 
 https://github.com/LogtalkDotOrg/logtalk3/commit/30ef34f25d02b0dd5daa32d5664878b65f6ef72c
 
