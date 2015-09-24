@@ -1,9 +1,9 @@
 %loader
-:- initialization((	
+:- initialization((
 	logtalk_load([
+	  family,
 		familytree,
-		familytreev2,
-		family,
+		familytreev2,		
 		simpson,
 		simpson_extended
 	])
