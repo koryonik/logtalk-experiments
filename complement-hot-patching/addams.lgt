@@ -1,6 +1,6 @@
 
-%  
-:- category(adams, implements(family), complements(familytree)).
+:- category(addams,
+	complements(familytree)).
 
 	male(gomez).
 	male(pubert).
@@ -15,5 +15,5 @@
 	parent(morticia, pubert).
 	parent(morticia, pugsley).
 	parent(morticia, wednesday).
-	
+
 :- end_category.

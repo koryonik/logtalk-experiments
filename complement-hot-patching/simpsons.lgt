@@ -1,5 +1,7 @@
-% define a complementing category, adding new predicates
-:- category(simpson, implements(family), complements(familytree)).
+
+:- category(simpsons,
+	implements(familyp),
+	complements(familytree)).
 
 	male(homer).
 	male(bart).
@@ -9,10 +11,10 @@
 	female(maggie).
 
 	parent(homer, bart).
-	parent(marge, bart).
 	parent(homer, lisa).
-	parent(marge, lisa).
 	parent(homer, maggie).
+	parent(marge, bart).
+	parent(marge, lisa).
 	parent(marge, maggie).
 
 :- end_category.
