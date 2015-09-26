@@ -8,6 +8,7 @@
 
 	female(marge).
 	female(lisa).
+	female(maggie).
 
 	parent(homer, bart).
 	parent(homer, lisa).
