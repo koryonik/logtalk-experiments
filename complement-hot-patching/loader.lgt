@@ -1,8 +1,8 @@
 %loader
 :- initialization((	
 	logtalk_load([
+		familyp,
 		familytree,
-		family,
-		simpson		
+		simpsons
 	])
 )).

@@ -1,42 +1,60 @@
-# complement / hot patching
+# Hot patching solution
 
-stuff based on :
- - logtalk delegates example - https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/delegates
- - http://rosettacode.org/wiki/Singleton#Logtalk
+Alternative to the delegation-based solution using complementing categories.
+Requires the latest git version of Logtalk.
 
-load the example dependencies (without category adams) :
-	
-	?- logtalk_load(loader).
+## Load the example dependencies (but only the Simpsons family database):
+
+	?- {loader}.
 	% [ /home/damien/wkp/github/logtalk-experiments/complement-hot-patching/familytree.lgt loaded ]
 	% [ /home/damien/wkp/github/logtalk-experiments/complement-hot-patching/family.lgt loaded ]
 	% [ /home/damien/wkp/github/logtalk-experiments/complement-hot-patching/simpson.lgt loaded ]
 	% [ /home/damien/wkp/github/logtalk-experiments/complement-hot-patching/loader.lgt loaded ]
 	true.
 
-familytree is "hot patched"  :
+## The `familytree` object is "hot patched" by the `simpsons` category:
 
-	?- familytree::mother(Mother, Child).
-	Mother = marge,
-	Child = bart ;
-	Mother = marge,
-	Child = lisa ;
-	Mother = marge,
-	Child = maggie ;
+	?- familytree::father(F, C).
+	F = homer,
+	C = bart ;
+	F = homer,
+	C = lisa ;
+	F = homer,
+	C = maggie ;
 	false.
 
-load adams complement :
+## Load the `simpsons_extended` category and run the query again:
 
-	?- logtalk_load(adams).
-	% [ /home/damien/wkp/github/logtalk-experiments/complement-hot-patching/adams.lgt loaded ]
+	?- {simpsons_extended}.
+	% [ /home/damien/wkp/github/logtalk-experiments/complement-hot-patching/simpsons_extended.lgt loaded ]
+	% (0 warnings)
 	true.
 
-predicates not redefined :
+	?- familytree::father(F, C).
+	F = homer,
+	C = bart ;
+	F = homer,
+	C = lisa ;
+	F = homer,
+	C = maggie ;
+	F = abe,
+	C = homer ;
+	F = abe,
+	C = herb ;
+	false.
 
-	?- familytree::mother(Mother, Child).
-	Mother = marge,
-	Child = bart ;
-	Mother = marge,
-	Child = lisa ;
-	Mother = marge,
-	Child = maggie ;
+## Switch to the Addams family and try the same query again:
+
+	?- {addams}.
+	% [ /Users/pmoura/Documents/Logtalk/logtalk3/examples/family/alt/addams.lgt loaded ]
+	% (0 warnings)
+	true.
+
+	?- familytree::father(F, C).
+	F = gomez,
+	C = pubert ;
+	F = gomez,
+	C = pugsley ;
+	F = gomez,
+	C = wednesday ;
 	false.
