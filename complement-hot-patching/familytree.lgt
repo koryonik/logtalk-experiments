@@ -29,4 +29,10 @@
 		::parent(Parent, Child),
 		Brother \== Child.
 
+	ancestor(Parent, Child) :-
+		::parent(Parent, Child).
+	ancestor(Parent,Child) :-
+		::parent(Parent,Somebody),
+		::ancestor(Somebody,Child).
+
 :- end_object.
