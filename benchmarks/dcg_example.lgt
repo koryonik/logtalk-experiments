@@ -14,7 +14,7 @@ is_woman(Token) :-
     	]).
 
       is_woman(Token) :-
-          ::firstname(female, [Token], []).
+          firstname(female, [Token], []).
 
       :- include('firstname1.lgt').
 
