@@ -1,43 +1,32 @@
 # benchmarks logtalk method calls
 
-load the example dependencies (without category adams) :
-
-  	?- logtalk_load(loader).
-
-    bench plain_prolog_simple ...
-    Number of repetitions: 500000
-    Total time calls: 0.33515501022338867 sec
-    Average time / call : 6.703100204467774e-7 sec
-    Number of calls / sec : 1491847.0103333327
-
-    bench logtalk_obj::simple ...
-    Number of repetitions: 500000
-    Total time calls: 3.7086780071258545 sec
-    Average time / call : 7.417356014251709e-6 sec
-    Number of calls / sec : 134818.92982871522
-
-    bench logtalk_obj_simple_wrapped ...
-    Number of repetitions: 500000
-    Total time calls: 2.392345905303955 sec
-    Average time / call : 4.78469181060791e-6 sec
-    Number of calls / sec : 208999.87702090823
-
-test plain prolog predicate call loop :
-
-    ?- benchmark(plain_prolog_simple).
-
-    Number of repetitions: 500000
-    Total time calls: 0.33799099922180176 seconds
-    Average time per call: 6.759819984436035e-7 seconds
-    Number of calls per second: 1479329.3346604244
-    true.
-
-test logtalk method call loop :
-
-    ?- benchmark(logtalk_obj::simple).
-
-    Number of repetitions: 500000
-    Total time calls: 2.950408935546875 seconds
-    Average time per call: 5.90081787109375e-6 seconds
-    Number of calls per second: 169468.0333888435
-    true.
+	?- {loader}.
+	% [ /Users/pmoura/logtalk-experiments/benchmarks/benchmark.lgt loaded ]
+	% [ /Users/pmoura/logtalk-experiments/benchmarks/dcg_example.lgt loaded ]
+	% [ /Users/pmoura/logtalk-experiments/benchmarks/simple_example.lgt loaded ]
+	% [ /Users/pmoura/logtalk-experiments/benchmarks/bench.lgt loaded ]
+	Plain Prolog goal (number of inferences):
+	% 3 inferences, 0.000 CPU in 0.000 seconds (30% CPU, 500000 Lips)
+	Logtalk goal (number of inferences):
+	% 2 inferences, 0.000 CPU in 0.000 seconds (67% CPU, 500000 Lips)
+	
+	bench plain_prolog_simple ...
+	Number of repetitions: 500000
+	Total time calls: 0.19803881645202637 sec
+	Average time / call : 3.9607763290405274e-7 sec
+	Number of calls / sec : 2524757.564995455
+	
+	bench logtalk_obj::simple ...
+	Number of repetitions: 500000
+	Total time calls: 0.15421795845031738 sec
+	Average time / call : 3.0843591690063476e-7 sec
+	Number of calls / sec : 3242164.5638700323
+	
+	Plain Prolog DCG call (number of inferences):
+	% 2 inferences, 0.000 CPU in 0.000 seconds (97% CPU, 8658 Lips)
+	
+	Logtalk DCG call(number of inferences):
+	% 2 inferences, 0.000 CPU in 0.000 seconds (94% CPU, 6309 Lips)
+	% [ /Users/pmoura/logtalk-experiments/benchmarks/loader.lgt loaded ]
+	% (0 warnings)
+	true.
