@@ -1,4 +1,5 @@
 
+:- use_module(library(apply_macros)).
 % plain prolog
 :- include('firstname1.lgt').
 
