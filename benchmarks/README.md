@@ -3,7 +3,24 @@
 load the example dependencies (without category adams) :
 
   	?- logtalk_load(loader).
-  	true.
+
+    bench plain_prolog_simple ...
+    Number of repetitions: 500000
+    Total time calls: 0.33515501022338867 sec
+    Average time / call : 6.703100204467774e-7 sec
+    Number of calls / sec : 1491847.0103333327
+
+    bench logtalk_obj::simple ...
+    Number of repetitions: 500000
+    Total time calls: 3.7086780071258545 sec
+    Average time / call : 7.417356014251709e-6 sec
+    Number of calls / sec : 134818.92982871522
+
+    bench logtalk_obj_simple_wrapped ...
+    Number of repetitions: 500000
+    Total time calls: 2.392345905303955 sec
+    Average time / call : 4.78469181060791e-6 sec
+    Number of calls / sec : 208999.87702090823
 
 test plain prolog predicate call loop :
 
